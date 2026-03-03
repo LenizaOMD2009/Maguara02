@@ -26,6 +26,7 @@ SELECT pg_create_physical_replication_slot('slot_replicacao_master');
 pg_basebackup -h app_master -U senac -D /var/lib/postgresql/data -v -P -X stream -c fast
 
 primary_conninfo = 'host=app_master port=5432 user=senac password=senac'
+zip -r /var/lib/postgresql/data/backup.zip /var/lib/postgresql/data
 
 -- obtem diretório do PGDATA
 --show data_directory;
